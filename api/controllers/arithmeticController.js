@@ -11,7 +11,7 @@ exports.calculate = function(req, res) {
   });
 
   var operations = {
-    'add':      function(a,b) { return a + b },
+    'add':      function(a,b) { return +a + +b },
     'subtract': function(a,b) { return a - b },
     'multiply': function(a,b) { return a * b },
     'divide':   function(a,b) { return a / b },
@@ -44,7 +44,7 @@ exports.calculate = function(req, res) {
   }
 
   var operand1 = parseInt(req.query.operand1, 10);
-  var operand2 = parseInt(req.query.operand2, 10);
+  var operand2 = parseInt(req.query.operand2, 10); 
 
   res.json({ result: operation(req.query.operand1, req.query.operand2) });
 };
